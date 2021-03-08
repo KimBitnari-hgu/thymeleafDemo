@@ -1,0 +1,55 @@
+/* Header */
+.head {
+	/* border-bottom: 3px solid #6495ed; */
+	background-color: #6495ed;
+	height: 50px;
+	margin: 0;
+	box-shadow: 0 4px 20px -6px lightgray;
+	padding: 25px 15px 10px 15px;
+}
+
+.headerLink {
+	text-decoration: none;
+	color: white;
+	font-size: 24px;
+	margin: 0 20px;
+}
+
+
+/* Body */
+.container {
+	width: 70%;
+	margin: auto;
+}
+
+button {
+	background-color: white;
+	border: 2px solid #6495ed;
+	border-radius: 20px;
+	padding: 10px;
+}
+button:hover {
+	cursor: pointer;
+	background-color: #6495ed;
+	color: white;
+}
+.button {
+	background-color: white;
+	border: 2px solid #6495ed;
+	border-radius: 20px;
+	padding: 10px;
+}
+.button:hover {
+	cursor: pointer;
+	background-color: #6495ed;
+	color: white;
+}
+
+label {
+	 font-weight: bolder;
+	 font-size: 20px;
+}
+
+
+/* Footer */
+

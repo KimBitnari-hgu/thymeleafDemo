@@ -4,45 +4,44 @@
 		<meta charset="UTF-8">
 		<title>파일게시판-리스트페이지</title>	
 		
-		<style>
-			li {
-				list-style: none;
-				float: left;
-			}
-		</style>
+		<link th:href="@{/css/common.css}" rel="stylesheet" />
+		<link th:href="@{/css/list.css}" rel="stylesheet" />
 	</head>
 	
 	<body>
-		<div>
-			<div style="padding: 10px; text-align: center;">
-				<h1><a th:href="@{/fileBoard/list}" style="text-decotation: none;">파일자료실</a></h1>
+		<div class="head">
+			<div th:replace="./inc/header"></div>
+		</div>
+		<br/>
+		
+		<div class="container">			
+			<div style="text-align: right;">
+				<button onclick="location.href='/fileBoard/insert'">글 작성</button>
 			</div>
+			<br/>
 			
 			<!-- 타임리프 관련 태그에 내용이 없어도 무조건 에러  -->
 			
 			<div>
 				<table>
-					<thead style="text-align: center;">
-						<tr>
-							<th style="text-align: center;">순서</th>
-							<th style="text-align: center;">작성자</th>
-							<th style="text-align: center;">제목</th>
-							<th style="text-align: center;">작성일</th>
+					<thead>
+						<tr class="tableHeader">
+							<th>No.</th>
+							<th>제목</th>
+							<th>작성자</th>
+							<th>작성일</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="data : ${testlist}" th:onclick="'window.location.href = \'' + @{/fileBoard/detail/{bno}(bno=${data.b_no})} + '\''">
-							<td th:text="${data.b_no}" style="cursor: pointer; text-align: center;"></td>
-							<td th:text="${data.writer}" style="cursor: pointer; text-align: center;"></td>
-							<td th:text="${data.title}" style="cursor: pointer; text-align: center;"></td>
-							<td th:text="${data.reg_date}" style="cursor: pointer; text-align: center;"></td>
+						<tr th:each="data, num : ${testlist}" th:onclick="'window.location.href = \'' + @{/fileBoard/detail/{bno}(bno=${data.b_no})} + '\''" class="detailHover">
+							<td th:text="${data.b_no}" style="display: none;"></td>
+							<td th:text="${num.count}"></td>
+							<td th:text="${data.title}"></td>
+							<td th:text="${data.writer}"></td>
+							<td th:text="${data.reg_date}"></td>
 						</tr>
 					</tbody>
 				</table>
-			</div>
-			
-			<div style="text-align: right;">
-				<button onclick="location.href='/fileBoard/insert'">글 작성</button>
 			</div>
 			
 			<br/><br/><br/>

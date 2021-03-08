@@ -3,50 +3,53 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>파일게시판-상세페이지</title>	
+		
+		<link th:href="@{/css/common.css}" rel="stylesheet" />
+		<link th:href="@{/css/detail.css}" rel="stylesheet" />
 	</head>
 	
 	<body>
 		<div>
-			<div style="padding: 10px; text-align: center;">
-				<h1><a th:href="@{/fileBoard/list}" style="text-decoration: none;">CrazyAcade - 자료실</a></h1>
+			<div class="head">
+				<div th:replace="./inc/header"></div>
 			</div>
+			<br/><br/>
 			
-			<div>
-				<h4 style="font-weight: bolder;">상세내용</h4>
-				<br/>
-				
+			<div class="container">
 				<form role="form" th:object=${fileBoardVO} th:action="@{/fileBoard/list}" method="post">
-					<div>
-						<label style="font-weight: bolder;">제목</label>
-						<p th:text="${detail.title}"></p>
-						<input type="hidden" th:field="${detail.title}">
-					</div>
-					<div>
-						<label style="font-weight: bolder;">작성자</label>
-						<p th:text="${detail.writer}"></p>
-						<input type="hidden" th:field="${detail.writer}">
-					</div>
-					<div>
-						<label style="font-weight: bolder;">작성일자</label>
-						<p th:text="${detail.reg_date}"></p>
-					</div>
-					<div>
-						<label style="font-weight: bolder;">첨부파일</label>
-						<p>
-							<a th:if="${file}" th:href="@{/fileBoard/fileDown/{bno}(bno=${file.b_no})}">
-								[[${file.file_origin_name}]]
-							</a>
-						</p>
-					</div>
-					<div>
-						<label style="font-weight: bolder;">내용</label>
-						<p th:text="${detail.content}"></p>
-						<input type="hidden" th:field="${detail.content}">
-					</div>
+					<table>
+						<tbody>
+							<tr>
+								<th><label>제목</label></th>
+								<td colspan="3"><p th:text="${detail.title}"></p></td>
+							</tr>
+							<tr>
+								<th><label>작성자</label></th>
+								<td class="writerWidth"><p th:text="${detail.writer}"></p></td>
+								<th><label>작성일자</label></th>
+								<td class="dateWidth"><p th:text="${detail.reg_date}"></p></td>
+							</tr>
+							<tr height="200">
+								<th><label>내용</label></th>
+								<td colspan="3"><p th:text="${detail.content}"></p></td>
+							</tr>
+							<tr>
+								<th><label>첨부파일</label></th>
+								<td colspan="3">
+									<p>
+										<a th:if="${file}" th:href="@{/fileBoard/fileDown/{bno}(bno=${file.b_no})}">
+											[[${file.file_origin_name}]]
+										</a>
+									</p>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<br/>
 					<div style="text-align: right;">
-						<input type="submit" th:value="목록" th:formaction="@{/fileBoard/list}">
-						<input type="submit" th:value="수정" th:formaction="@{/fileBoard/update/{bno}(bno=${detail.b_no})}">
-						<input type="submit" th:value="삭제" th:formaction="@{/fileBoard/delete/{bno}(bno=${detail.b_no})}">
+						<input class="button" type="submit" th:value="목록" th:formaction="@{/fileBoard/list}">
+						<input class="button" type="submit" th:value="수정" th:formaction="@{/fileBoard/update/{bno}(bno=${detail.b_no})}">
+						<input class="button" type="submit" th:value="삭제" th:formaction="@{/fileBoard/delete/{bno}(bno=${detail.b_no})}">
 					</div>
 				</form>
 			</div>

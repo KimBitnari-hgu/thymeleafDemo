@@ -1,0 +1,27 @@
+/* p {
+	margin-bottom: 30px;
+	height: 35px;
+	background-color: rgba(100, 149, 237, 0.1);
+	padding: 10px;
+	display: inline;
+} */
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+th {
+	background-color: rgba(100, 149, 237, 0.1);
+	border: 1px solid black;
+	width: 20%;
+}
+td {
+	border: 1px solid black;
+	width: 80%;
+	padding-left: 15px;
+}
+.writerWidth {
+	width: 25%;
+}
+.dateWidth {
+	width: 35%;
+}

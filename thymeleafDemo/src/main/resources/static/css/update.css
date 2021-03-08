@@ -1,0 +1,26 @@
+#title {
+	width: 100%;
+	margin-bottom: 30px;
+	height: 35px;
+	background-color: rgba(100, 149, 237, 0.1);
+	border: none;
+	padding: 10px;
+}
+
+#writer {
+	width: 100%;
+	margin-bottom: 30px;
+	height: 35px;
+	background-color: rgba(100, 149, 237, 0.1);
+	border: none;
+	padding: 10px;
+}
+
+#content {
+	width: 100%;
+	margin-bottom: 30px;
+	height: 70px;
+	background-color: rgba(100, 149, 237, 0.1);
+	border: none;
+	padding: 10px;
+}

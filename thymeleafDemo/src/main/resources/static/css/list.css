@@ -1,0 +1,20 @@
+table {
+	width: 100%;
+    /* border-top: 1px solid #bbbcbe; */
+    border-collapse: collapse;
+}
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+.tableHeader {
+	background-color: rgb(100, 149, 237);
+	color: white;
+}
+td {
+	border-bottom: 1px solid #bbbcbe;
+	cursor: pointer;
+}
+.detailHover:hover {
+	background-color: rgba(100, 149, 237, 0.1);
+}
