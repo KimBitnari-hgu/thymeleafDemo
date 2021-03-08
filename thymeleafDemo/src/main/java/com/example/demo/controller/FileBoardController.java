@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,13 +87,26 @@ public class FileBoardController {
 		
 		List<FileBoardVO> testList = new ArrayList<>();
 		testList = fileBoardService.readFileBoardList();
+		
+		for(int i=0;i<testList.size();i++) {
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			String nowDate = simpleDateFormat.format(testList.get(i).getReg_date());
+			testList.get(i).setNow_date(nowDate);
+		}
+		
 		model.addAttribute("testlist", testList);
 		
 		return "fileBoard/list";
 	}
 	@RequestMapping("/detail/{b_no}")
 	private String fileBoardDetail(@PathVariable("b_no") int b_no, Model model) {
-		model.addAttribute("detail", fileBoardService.readFileBoardDetail(b_no));
+		FileBoardVO boardDetail = fileBoardService.readFileBoardDetail(b_no);
+		
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String nowDate = simpleDateFormat.format(boardDetail.getReg_date());
+		boardDetail.setNow_date(nowDate);
+
+		model.addAttribute("detail", boardDetail);
 		
 		if(fileBoardService.readFileDetail(b_no) == null) return "fileBoard/detail";
 		else {

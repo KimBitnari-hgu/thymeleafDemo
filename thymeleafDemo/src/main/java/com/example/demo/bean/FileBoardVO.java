@@ -16,4 +16,5 @@ public class FileBoardVO {
 	private String content;
 	private String writer;
 	private Date reg_date;
+	private String now_date;
 }
